@@ -15,3 +15,5 @@ Wazuh_Server/config/wazuh_indexer_ssl_certs/**
 .*.swo
 .*.swx
 *~
+*.key
+*.pem
