@@ -1,393 +1,3 @@
-[Wazuh_Server]:~ $ ls
-Desktop  Documents  Downloads  Music  Pictures  Public  snap  Templates  Videos  wazuh-docker
-[Wazuh_Server]:~ $ cd wazuh-docker/
-[Wazuh_Server]:~/wazuh-docker $ ls
-build-docker-images  indexer-certs-creator  README.md    tools
-CHANGELOG.md         LICENSE                SECURITY.md  VERSION.json
-docs                 multi-node             single-node  wazuh-agent
-[Wazuh_Server]:~/wazuh-docker $ cd single-node/
-[Wazuh_Server]:~/wazuh-docker/single-node $ ls
-config  docker-compose.yml  generate-indexer-certs.yml  README.md
-[Wazuh_Server]:~/wazuh-docker/single-node $ sudo docker compose ps
-[sudo] password for hello: 
-NAME                            IMAGE                          COMMAND                  SERVICE           CREATED        STATUS       PORTS
-single-node-wazuh.dashboard-1   wazuh/wazuh-dashboard:4.13.1   "/entrypoint.sh"         wazuh.dashboard   27 hours ago   Up 5 hours   443/tcp, 0.0.0.0:443->5601/tcp, [::]:443->5601/tcp
-single-node-wazuh.indexer-1     wazuh/wazuh-indexer:4.13.1     "/entrypoint.sh open…"   wazuh.indexer     27 hours ago   Up 5 hours   0.0.0.0:9200->9200/tcp, [::]:9200->9200/tcp
-single-node-wazuh.manager-1     wazuh/wazuh-manager:4.13.1     "/init"                  wazuh.manager     27 hours ago   Up 5 hours   0.0.0.0:1514-1515->1514-1515/tcp, [::]:1514-1515->1514-1515/tcp, 0.0.0.0:514->514/udp, [::]:514->514/udp, 0.0.0.0:55000->55000/tcp, [::]:55000->55000/tcp, 1516/tcp
-[Wazuh_Server]:~/wazuh-docker/single-node $ ls
-config  docker-compose.yml  generate-indexer-certs.yml  README.md
-[Wazuh_Server]:~/wazuh-docker/single-node $ vim docker-compose.yml 
-[Wazuh_Server]:~/wazuh-docker/single-node $ ls
-config  docker-compose.yml  generate-indexer-certs.yml  README.md
-[Wazuh_Server]:~/wazuh-docker/single-node $ vim docker-compose.yml 
-[Wazuh_Server]:~/wazuh-docker/single-node $ ls
-config  docker-compose.yml  generate-indexer-certs.yml  README.md
-[Wazuh_Server]:~/wazuh-docker/single-node $ cd ..
-[Wazuh_Server]:~/wazuh-docker $ ls
-build-docker-images  indexer-certs-creator  README.md    tools
-CHANGELOG.md         LICENSE                SECURITY.md  VERSION.json
-docs                 multi-node             single-node  wazuh-agent
-[Wazuh_Server]:~/wazuh-docker $ cd ..
-[Wazuh_Server]:~ $ ls
-Desktop    Downloads  Pictures  snap       Videos
-Documents  Music      Public    Templates  wazuh-docker
-[Wazuh_Server]:~ $ cd wazuh-docker/
-[Wazuh_Server]:~/wazuh-docker $ ls
-build-docker-images  indexer-certs-creator  README.md    tools
-CHANGELOG.md         LICENSE                SECURITY.md  VERSION.json
-docs                 multi-node             single-node  wazuh-agent
-[Wazuh_Server]:~/wazuh-docker $ cd single-node/
-[Wazuh_Server]:~/wazuh-docker/single-node $ ls
-config  docker-compose.yml  generate-indexer-certs.yml  README.md
-[Wazuh_Server]:~/wazuh-docker/single-node $ git remote -b
-error: unknown switch `b'
-usage: git remote [-v | --verbose]
-   or: git remote add [-t <branch>] [-m <master>] [-f] [--tags | --no-tags] [--mirror=<fetch|push>] <name> <url>
-   or: git remote rename <old> <new>
-   or: git remote remove <name>
-   or: git remote set-head <name> (-a | --auto | -d | --delete | <branch>)
-   or: git remote [-v | --verbose] show [-n] <name>
-   or: git remote prune [-n | --dry-run] <name>
-   or: git remote [-v | --verbose] update [-p | --prune] [(<group> | <remote>)...]
-   or: git remote set-branches [--add] <name> <branch>...
-   or: git remote get-url [--push] [--all] <name>
-   or: git remote set-url [--push] <name> <newurl> [<oldurl>]
-   or: git remote set-url --add <name> <newurl>
-   or: git remote set-url --delete <name> <url>
-
-    -v, --verbose         be verbose; must be placed before a subcommand
-
-[Wazuh_Server]:~/wazuh-docker/single-node $ git remote -v
-origin	https://github.com/wazuh/wazuh-docker.git (fetch)
-origin	https://github.com/wazuh/wazuh-docker.git (push)
-[Wazuh_Server]:~/wazuh-docker/single-node $ git branch
-* (no branch)
-[Wazuh_Server]:~/wazuh-docker/single-node $ cd ..
-[Wazuh_Server]:~/wazuh-docker $ git branch
-* (no branch)
-[Wazuh_Server]:~/wazuh-docker $ ls
-build-docker-images  indexer-certs-creator  README.md    tools
-CHANGELOG.md         LICENSE                SECURITY.md  VERSION.json
-docs                 multi-node             single-node  wazuh-agent
-[Wazuh_Server]:~/wazuh-docker $ ls -al
-total 116
-drwxrwxr-x 11 hello hello  4096 10월  2 15:11 .
-drwxr-x--- 15 hello hello  4096 10월  2 20:13 ..
-drwxrwxr-x  6 hello hello  4096 10월  2 15:11 build-docker-images
--rw-rw-r--  1 hello hello 20909 10월  2 15:11 CHANGELOG.md
-drwxrwxr-x  4 hello hello  4096 10월  2 15:11 docs
--rwxrwxr-x  1 hello hello   169 10월  2 15:11 .env
-drwxrwxr-x  8 hello hello  4096 10월  2 15:11 .git
-drwxrwxr-x  4 hello hello  4096 10월  2 15:11 .github
--rw-rw-r--  1 hello hello   199 10월  2 15:11 .gitignore
-drwxrwxr-x  3 hello hello  4096 10월  2 15:11 indexer-certs-creator
--rw-rw-r--  1 hello hello 24736 10월  2 15:11 LICENSE
-drwxrwxr-x  3 hello hello  4096 10월  2 15:11 multi-node
--rw-rw-r--  1 hello hello  2518 10월  2 15:11 README.md
--rw-rw-r--  1 hello hello  3624 10월  2 15:11 SECURITY.md
-drwxrwxr-x  3 hello hello  4096 10월  2 20:09 single-node
-drwxrwxr-x  2 hello hello  4096 10월  2 15:11 tools
--rw-rw-r--  1 hello hello    48 10월  2 15:11 VERSION.json
-drwxrwxr-x  3 hello hello  4096 10월  2 15:11 wazuh-agent
-[Wazuh_Server]:~/wazuh-docker $ cd ..
-[Wazuh_Server]:~ $ ls
-Desktop    Downloads  Pictures  snap       Videos
-Documents  Music      Public    Templates  wazuh-docker
-[Wazuh_Server]:~ $ cd wazuh-docker/
-[Wazuh_Server]:~/wazuh-docker $ ls
-build-docker-images  indexer-certs-creator  README.md    tools
-CHANGELOG.md         LICENSE                SECURITY.md  VERSION.json
-docs                 multi-node             single-node  wazuh-agent
-[Wazuh_Server]:~/wazuh-docker $ cd single-node/
-[Wazuh_Server]:~/wazuh-docker/single-node $ ls
-config  docker-compose.yml  generate-indexer-certs.yml  README.md
-[Wazuh_Server]:~/wazuh-docker/single-node $ cd ..
-[Wazuh_Server]:~/wazuh-docker $ cd ..
-[Wazuh_Server]:~ $ git clone https://github.com/BISHOP1027/Linux-Endpoint-Sentinel.git
-Cloning into 'Linux-Endpoint-Sentinel'...
-remote: Enumerating objects: 12236, done.
-remote: Counting objects: 100% (23/23), done.
-remote: Compressing objects: 100% (17/17), done.
-remote: Total 12236 (delta 0), reused 9 (delta 0), pack-reused 12213 (from 1)
-Receiving objects: 100% (12236/12236), 3.43 MiB | 24.94 MiB/s, done.
-Resolving deltas: 100% (6433/6433), done.
-[Wazuh_Server]:~ $ ls
-Desktop    Downloads                Music     Public  Templates  wazuh-docker
-Documents  Linux-Endpoint-Sentinel  Pictures  snap    Videos
-[Wazuh_Server]:~ $ cd Linux-Endpoint-Sentinel/
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel $ ls
-Wazuh_Agent  Wazuh_Server
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel $ cd ..
-[Wazuh_Server]:~ $ rm -rf wazuh-docker/
-rm: cannot remove 'wazuh-docker/single-node/config/wazuh_indexer_ssl_certs': Permission denied
-[Wazuh_Server]:~ $ sudo rm -rf wazuh-docker/
-[sudo] password for hello: 
-Sorry, try again.
-[sudo] password for hello: 
-[Wazuh_Server]:~ $ ls
-Desktop    Downloads                Music     Public  Templates
-Documents  Linux-Endpoint-Sentinel  Pictures  snap    Videos
-[Wazuh_Server]:~ $ cd Linux-Endpoint-Sentinel/
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel $ ls
-Wazuh_Agent  Wazuh_Server
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel $ cd Wazuh_Server/
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ ls
-config  docker-compose.yml  generate-indexer-certs.yml  README.md
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose ps
-NAME      IMAGE     COMMAND   SERVICE   CREATED   STATUS    PORTS
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose up -d
-[+] Running 3/3
- ! wazuh.dashboard     Interrupted                                                      2.4s 
- ! wazuh.manager       Interrupted                                                      2.4s 
- ✘ wazuh.indexer Error manifest for wazuh/wazuh-indexer:5.0.0 n...                      2.4s 
-Error response from daemon: manifest for wazuh/wazuh-indexer:5.0.0 not found: manifest unknown: manifest unknown
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ git pull --rebase
-remote: Enumerating objects: 7, done.
-remote: Counting objects: 100% (7/7), done.
-remote: Compressing objects: 100% (4/4), done.
-remote: Total 4 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
-Unpacking objects: 100% (4/4), 1.04 KiB | 1.04 MiB/s, done.
-From https://github.com/BISHOP1027/Linux-Endpoint-Sentinel
-   75e5eaf..0aba0f5  main       -> origin/main
-Updating 75e5eaf..0aba0f5
-Fast-forward
- Wazuh_Server/docker-compose.yml | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ ls
-config  docker-compose.yml  generate-indexer-certs.yml  README.md
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ vim docker-compose.yml 
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ sudo docker compose up -d
-[+] Running 16/18
- ✔ Network wazuh_server_default                 Creat...                                0.1s 
- ✔ Volume wazuh_server_wazuh_integrations       Created                                 0.0s 
- ✔ Volume wazuh_server_wazuh_active_response    Created                                 0.0s 
- ✔ Volume wazuh_server_wazuh_wodles             C...                                    0.0s 
- ✔ Volume wazuh_server_wazuh-indexer-data       Created                                 0.0s 
- ✔ Volume wazuh_server_wazuh_api_configuration  Created                                 0.0s 
- ✔ Volume wazuh_server_filebeat_etc             C...                                    0.0s 
- ✔ Volume wazuh_server_wazuh_var_multigroups    Created                                 0.0s 
- ✔ Volume wazuh_server_wazuh_agentless          Created                                 0.0s 
- ✔ Volume wazuh_server_wazuh_etc                Crea...                                 0.0s 
- ✔ Volume wazuh_server_wazuh_queue              Cr...                                   0.0s 
- ✔ Volume wazuh_server_filebeat_var             C...                                    0.0s 
- ✔ Volume wazuh_server_wazuh-dashboard-config   Created                                 0.0s 
- ✔ Volume wazuh_server_wazuh-dashboard-custom   Created                                 0.0s 
- ✔ Volume wazuh_server_wazuh_logs               Cre...                                  0.0s 
- ⠹ Container wazuh_server-wazuh.manager-1       Starting                                1.2s 
- ⠙ Container wazuh_server-wazuh.indexer-1       Starting                                1.2s 
- ✔ Container wazuh_server-wazuh.dashboard-1     Created                                 0.0s 
-Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint wazuh_server-wazuh.indexer-1 (621796308c7196c307725325dc88d0b581f1e5b77dc2d890916fa12bd405be78): Bind for 0.0.0.0:9200 failed: port is already allocated
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ sudo ss -ltnp 'sport = :9200'
-State       Recv-Q      Send-Q           Local Address:Port           Peer Address:Port      Process                                                                                      
-LISTEN      0           4096                   0.0.0.0:9200                0.0.0.0:*          users:(("docker-proxy",pid=2517,fd=7))                                                      
-LISTEN      0           4096                      [::]:9200                   [::]:*          users:(("docker-proxy",pid=2524,fd=7))                                                      
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ sudo kill 2517
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ sudo kill 2524
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ sudo ss -ltnp 'sport = :9200'
-State    Recv-Q    Send-Q         Local Address:Port         Peer Address:Port    Process    
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ sudo docker compose up -d
-[+] Running 0/2
- ⠧ Container wazuh_server-wazuh.indexer-1  Starting                                     0.8s 
- ⠧ Container wazuh_server-wazuh.manager-1  Starting                                     0.8s 
-Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint wazuh_server-wazuh.manager-1 (cfcf3ede3a1324ee3136b805495038798491d3d9f68ce11ac7ef308b673773bd): Bind for :::514 failed: port is already allocated
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ sudo ss -ltnp 'sport = :514'
-State    Recv-Q    Send-Q         Local Address:Port         Peer Address:Port    Process    
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ sudo ss -ltnp 'sport = :514'sudo ss -ltnp 'sport = :514'
-Error: "514sudo" does not look like a port.
-Cannot parse dst/src address.
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ sudo lsof -iUDP:514 -Pn
-COMMAND    PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
-docker-pr 2421 root    7u  IPv4  22892      0t0  UDP *:514 
-docker-pr 2430 root    7u  IPv6  22893      0t0  UDP *:514 
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ sudo kill 2421
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ sudo kill 24230
-kill: (24230): No such process
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ sudo kill 2430
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ sudo docker compose up -d
-[+] Running 0/2
- ⠇ Container wazuh_server-wazuh.indexer-1  Starting                                     0.8s 
- ⠇ Container wazuh_server-wazuh.manager-1  Starting                                     0.8s 
-Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint wazuh_server-wazuh.indexer-1 (9895e7a632d8643322104e93ce6d5a07db8e21b64c4e8be9319daa3419b22089): Bind for :::9200 failed: port is already allocated
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose down
-[+] Running 4/4
- ✔ Container wazuh_server-wazuh.dashboard-1  Removed                                    0.0s 
- ✔ Container wazuh_server-wazuh.indexer-1    Removed                                    0.0s 
- ✔ Container wazuh_server-wazuh.manager-1    Removed                                    0.0s 
- ✔ Network wazuh_server_default              Removed                                    0.1s 
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose up -d
-[+] Running 2/4
- ✔ Network wazuh_server_default              Created                                    0.1s 
- ⠋ Container wazuh_server-wazuh.indexer-1    Starting                                   0.9s 
- ⠋ Container wazuh_server-wazuh.manager-1    Starting                                   0.9s 
- ✔ Container wazuh_server-wazuh.dashboard-1  Created                                    0.0s 
-Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint wazuh_server-wazuh.indexer-1 (35e4312500a00293b0939ee0648a160e520791ae36adc684dace0196b467e619): Bind for 0.0.0.0:9200 failed: port is already allocated
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose down
-[+] Running 4/4
- ✔ Container wazuh_server-wazuh.dashboard-1  Removed                                    0.0s 
- ✔ Container wazuh_server-wazuh.indexer-1    Removed                                    0.0s 
- ✔ Container wazuh_server-wazuh.manager-1    Removed                                    0.0s 
- ✔ Network wazuh_server_default              Removed                                    0.1s 
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker ps -a
-CONTAINER ID   IMAGE                          COMMAND                  CREATED        STATUS       PORTS                                                                                                                                                                 NAMES
-a9ab81c3a826   wazuh/wazuh-dashboard:4.13.1   "/entrypoint.sh"         28 hours ago   Up 6 hours   443/tcp, 0.0.0.0:443->5601/tcp, [::]:443->5601/tcp                                                                                                                    single-node-wazuh.dashboard-1
-f6c494284954   wazuh/wazuh-manager:4.13.1     "/init"                  28 hours ago   Up 6 hours   0.0.0.0:1514-1515->1514-1515/tcp, [::]:1514-1515->1514-1515/tcp, 0.0.0.0:514->514/udp, [::]:514->514/udp, 0.0.0.0:55000->55000/tcp, [::]:55000->55000/tcp, 1516/tcp   single-node-wazuh.manager-1
-fd3e66e94e37   wazuh/wazuh-indexer:4.13.1     "/entrypoint.sh open…"   28 hours ago   Up 6 hours   0.0.0.0:9200->9200/tcp, [::]:9200->9200/tcp                                                                                                                           single-node-wazuh.indexer-1
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker rm a9ab81c3a826
-Error response from daemon: cannot remove container "a9ab81c3a826": container is running: stop the container before removing or force remove
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker stop a9ab81c3a826
-a9ab81c3a826
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker stop f6c494284954
-f6c494284954
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker stop fd3e66e94e37
-fd3e66e94e37
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker ps -a
-CONTAINER ID   IMAGE                          COMMAND                  CREATED        STATUS                        PORTS     NAMES
-a9ab81c3a826   wazuh/wazuh-dashboard:4.13.1   "/entrypoint.sh"         28 hours ago   Exited (137) 22 seconds ago             single-node-wazuh.dashboard-1
-f6c494284954   wazuh/wazuh-manager:4.13.1     "/init"                  28 hours ago   Exited (0) 10 seconds ago               single-node-wazuh.manager-1
-fd3e66e94e37   wazuh/wazuh-indexer:4.13.1     "/entrypoint.sh open…"   28 hours ago   Exited (143) 3 seconds ago              single-node-wazuh.indexer-1
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker rm a9ab81c3a826
-a9ab81c3a826
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker rm f6c494284954
-f6c494284954
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker rm fd3e66e94e37
-fd3e66e94e37
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker ps -a
-CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ ls
-config  docker-compose.yml  generate-indexer-certs.yml  README.md
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose ps -d
-unknown shorthand flag: 'd' in -d
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose up -d
-[+] Running 4/4
- ✔ Network wazuh_server_default              Created                                    0.1s 
- ✔ Container wazuh_server-wazuh.indexer-1    Started                                    0.9s 
- ✔ Container wazuh_server-wazuh.manager-1    Started                                    0.9s 
- ✔ Container wazuh_server-wazuh.dashboard-1  Started                                    1.3s 
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ ls
-config  docker-compose.yml  generate-indexer-certs.yml  README.md
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose ps
-NAME                             IMAGE                          COMMAND                  SERVICE           CREATED         STATUS                                   PORTS
-wazuh_server-wazuh.dashboard-1   wazuh/wazuh-dashboard:4.13.1   "/entrypoint.sh"         wazuh.dashboard   2 minutes ago   Restarting (64) Less than a second ago   
-wazuh_server-wazuh.indexer-1     wazuh/wazuh-indexer:4.13.1     "/entrypoint.sh open…"   wazuh.indexer     2 minutes ago   Up 7 seconds                             0.0.0.0:9200->9200/tcp, [::]:9200->9200/tcp
-wazuh_server-wazuh.manager-1     wazuh/wazuh-manager:4.13.1     "/init"                  wazuh.manager     2 minutes ago   Up 13 seconds                            0.0.0.0:1514-1515->1514-1515/tcp, [::]:1514-1515->1514-1515/tcp, 0.0.0.0:514->514/udp, [::]:514->514/udp, 0.0.0.0:55000->55000/tcp, [::]:55000->55000/tcp, 1516/tcp
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose ps
-NAME                             IMAGE                          COMMAND                  SERVICE           CREATED         STATUS         PORTS
-wazuh_server-wazuh.dashboard-1   wazuh/wazuh-dashboard:4.13.1   "/entrypoint.sh"         wazuh.dashboard   2 minutes ago   Up 6 seconds   443/tcp, 0.0.0.0:443->5601/tcp, [::]:443->5601/tcp
-wazuh_server-wazuh.indexer-1     wazuh/wazuh-indexer:4.13.1     "/entrypoint.sh open…"   wazuh.indexer     2 minutes ago   Up 6 seconds   0.0.0.0:9200->9200/tcp, [::]:9200->9200/tcp
-wazuh_server-wazuh.manager-1     wazuh/wazuh-manager:4.13.1     "/init"                  wazuh.manager     2 minutes ago   Up 1 second    0.0.0.0:1514-1515->1514-1515/tcp, [::]:1514-1515->1514-1515/tcp, 0.0.0.0:514->514/udp, [::]:514->514/udp, 0.0.0.0:55000->55000/tcp, [::]:55000->55000/tcp, 1516/tcp
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose ps
-NAME                             IMAGE                          COMMAND                  SERVICE           CREATED         STATUS                                   PORTS
-wazuh_server-wazuh.dashboard-1   wazuh/wazuh-dashboard:4.13.1   "/entrypoint.sh"         wazuh.dashboard   2 minutes ago   Restarting (64) Less than a second ago   
-wazuh_server-wazuh.indexer-1     wazuh/wazuh-indexer:4.13.1     "/entrypoint.sh open…"   wazuh.indexer     2 minutes ago   Restarting (1) Less than a second ago    
-wazuh_server-wazuh.manager-1     wazuh/wazuh-manager:4.13.1     "/init"                  wazuh.manager     2 minutes ago   Up 4 seconds                             0.0.0.0:1514-1515->1514-1515/tcp, [::]:1514-1515->1514-1515/tcp, 0.0.0.0:514->514/udp, [::]:514->514/udp, 0.0.0.0:55000->55000/tcp, [::]:55000->55000/tcp, 1516/tcp
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose ps
-NAME                             IMAGE                          COMMAND                  SERVICE           CREATED         STATUS                        PORTS
-wazuh_server-wazuh.dashboard-1   wazuh/wazuh-dashboard:4.13.1   "/entrypoint.sh"         wazuh.dashboard   2 minutes ago   Up 4 seconds                  443/tcp, 0.0.0.0:443->5601/tcp, [::]:443->5601/tcp
-wazuh_server-wazuh.indexer-1     wazuh/wazuh-indexer:4.13.1     "/entrypoint.sh open…"   wazuh.indexer     2 minutes ago   Restarting (1) 1 second ago   
-wazuh_server-wazuh.manager-1     wazuh/wazuh-manager:4.13.1     "/init"                  wazuh.manager     2 minutes ago   Up 14 seconds                 0.0.0.0:1514-1515->1514-1515/tcp, [::]:1514-1515->1514-1515/tcp, 0.0.0.0:514->514/udp, [::]:514->514/udp, 0.0.0.0:55000->55000/tcp, [::]:55000->55000/tcp, 1516/tcp
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose ps
-NAME                             IMAGE                          COMMAND                  SERVICE           CREATED         STATUS                         PORTS
-wazuh_server-wazuh.dashboard-1   wazuh/wazuh-dashboard:4.13.1   "/entrypoint.sh"         wazuh.dashboard   2 minutes ago   Restarting (64) 1 second ago   
-wazuh_server-wazuh.indexer-1     wazuh/wazuh-indexer:4.13.1     "/entrypoint.sh open…"   wazuh.indexer     2 minutes ago   Restarting (1) 5 seconds ago   
-wazuh_server-wazuh.manager-1     wazuh/wazuh-manager:4.13.1     "/init"                  wazuh.manager     2 minutes ago   Up 3 seconds                   0.0.0.0:1514-1515->1514-1515/tcp, [::]:1514-1515->1514-1515/tcp, 0.0.0.0:514->514/udp, [::]:514->514/udp, 0.0.0.0:55000->55000/tcp, [::]:55000->55000/tcp, 1516/tcp
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose ps
-NAME                             IMAGE                          COMMAND                  SERVICE           CREATED         STATUS                          PORTS
-wazuh_server-wazuh.dashboard-1   wazuh/wazuh-dashboard:4.13.1   "/entrypoint.sh"         wazuh.dashboard   2 minutes ago   Restarting (64) 2 seconds ago   
-wazuh_server-wazuh.indexer-1     wazuh/wazuh-indexer:4.13.1     "/entrypoint.sh open…"   wazuh.indexer     2 minutes ago   Restarting (1) 6 seconds ago    
-wazuh_server-wazuh.manager-1     wazuh/wazuh-manager:4.13.1     "/init"                  wazuh.manager     2 minutes ago   Up 5 seconds                    0.0.0.0:1514-1515->1514-1515/tcp, [::]:1514-1515->1514-1515/tcp, 0.0.0.0:514->514/udp, [::]:514->514/udp, 0.0.0.0:55000->55000/tcp, [::]:55000->55000/tcp, 1516/tcp
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose ps
-NAME                             IMAGE                          COMMAND                  SERVICE           CREATED         STATUS                          PORTS
-wazuh_server-wazuh.dashboard-1   wazuh/wazuh-dashboard:4.13.1   "/entrypoint.sh"         wazuh.dashboard   3 minutes ago   Restarting (64) 4 seconds ago   
-wazuh_server-wazuh.indexer-1     wazuh/wazuh-indexer:4.13.1     "/entrypoint.sh open…"   wazuh.indexer     3 minutes ago   Restarting (1) 8 seconds ago    
-wazuh_server-wazuh.manager-1     wazuh/wazuh-manager:4.13.1     "/init"                  wazuh.manager     3 minutes ago   Up 6 seconds                    0.0.0.0:1514-1515->1514-1515/tcp, [::]:1514-1515->1514-1515/tcp, 0.0.0.0:514->514/udp, [::]:514->514/udp, 0.0.0.0:55000->55000/tcp, [::]:55000->55000/tcp, 1516/tcp
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose ps
-NAME                             IMAGE                          COMMAND                  SERVICE           CREATED         STATUS                          PORTS
-wazuh_server-wazuh.dashboard-1   wazuh/wazuh-dashboard:4.13.1   "/entrypoint.sh"         wazuh.dashboard   3 minutes ago   Restarting (64) 5 seconds ago   
-wazuh_server-wazuh.indexer-1     wazuh/wazuh-indexer:4.13.1     "/entrypoint.sh open…"   wazuh.indexer     3 minutes ago   Restarting (1) 9 seconds ago    
-wazuh_server-wazuh.manager-1     wazuh/wazuh-manager:4.13.1     "/init"                  wazuh.manager     3 minutes ago   Up 7 seconds                    0.0.0.0:1514-1515->1514-1515/tcp, [::]:1514-1515->1514-1515/tcp, 0.0.0.0:514->514/udp, [::]:514->514/udp, 0.0.0.0:55000->55000/tcp, [::]:55000->55000/tcp, 1516/tcp
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose ps
-NAME                             IMAGE                          COMMAND                  SERVICE           CREATED         STATUS                           PORTS
-wazuh_server-wazuh.dashboard-1   wazuh/wazuh-dashboard:4.13.1   "/entrypoint.sh"         wazuh.dashboard   3 minutes ago   Restarting (64) 10 seconds ago   
-wazuh_server-wazuh.indexer-1     wazuh/wazuh-indexer:4.13.1     "/entrypoint.sh open…"   wazuh.indexer     3 minutes ago   Up 2 seconds                     0.0.0.0:9200->9200/tcp, [::]:9200->9200/tcp
-wazuh_server-wazuh.manager-1     wazuh/wazuh-manager:4.13.1     "/init"                  wazuh.manager     3 minutes ago   Up 13 seconds                    0.0.0.0:1514-1515->1514-1515/tcp, [::]:1514-1515->1514-1515/tcp, 0.0.0.0:514->514/udp, [::]:514->514/udp, 0.0.0.0:55000->55000/tcp, [::]:55000->55000/tcp, 1516/tcp
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose ps
-NAME                             IMAGE                          COMMAND                  SERVICE           CREATED         STATUS                           PORTS
-wazuh_server-wazuh.dashboard-1   wazuh/wazuh-dashboard:4.13.1   "/entrypoint.sh"         wazuh.dashboard   3 minutes ago   Restarting (64) 12 seconds ago   
-wazuh_server-wazuh.indexer-1     wazuh/wazuh-indexer:4.13.1     "/entrypoint.sh open…"   wazuh.indexer     3 minutes ago   Up 4 seconds                     0.0.0.0:9200->9200/tcp, [::]:9200->9200/tcp
-wazuh_server-wazuh.manager-1     wazuh/wazuh-manager:4.13.1     "/init"                  wazuh.manager     3 minutes ago   Up 15 seconds                    0.0.0.0:1514-1515->1514-1515/tcp, [::]:1514-1515->1514-1515/tcp, 0.0.0.0:514->514/udp, [::]:514->514/udp, 0.0.0.0:55000->55000/tcp, [::]:55000->55000/tcp, 1516/tcp
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose ps
-NAME                             IMAGE                          COMMAND                  SERVICE           CREATED         STATUS                           PORTS
-wazuh_server-wazuh.dashboard-1   wazuh/wazuh-dashboard:4.13.1   "/entrypoint.sh"         wazuh.dashboard   3 minutes ago   Restarting (64) 13 seconds ago   
-wazuh_server-wazuh.indexer-1     wazuh/wazuh-indexer:4.13.1     "/entrypoint.sh open…"   wazuh.indexer     3 minutes ago   Up 5 seconds                     0.0.0.0:9200->9200/tcp, [::]:9200->9200/tcp
-wazuh_server-wazuh.manager-1     wazuh/wazuh-manager:4.13.1     "/init"                  wazuh.manager     3 minutes ago   Up Less than a second            0.0.0.0:1514-1515->1514-1515/tcp, [::]:1514-1515->1514-1515/tcp, 0.0.0.0:514->514/udp, [::]:514->514/udp, 0.0.0.0:55000->55000/tcp, [::]:55000->55000/tcp, 1516/tcp
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose ps
-NAME                             IMAGE                          COMMAND                  SERVICE           CREATED         STATUS                                  PORTS
-wazuh_server-wazuh.dashboard-1   wazuh/wazuh-dashboard:4.13.1   "/entrypoint.sh"         wazuh.dashboard   3 minutes ago   Restarting (64) 14 seconds ago          
-wazuh_server-wazuh.indexer-1     wazuh/wazuh-indexer:4.13.1     "/entrypoint.sh open…"   wazuh.indexer     3 minutes ago   Restarting (1) Less than a second ago   
-wazuh_server-wazuh.manager-1     wazuh/wazuh-manager:4.13.1     "/init"                  wazuh.manager     3 minutes ago   Up 1 second                             0.0.0.0:1514-1515->1514-1515/tcp, [::]:1514-1515->1514-1515/tcp, 0.0.0.0:514->514/udp, [::]:514->514/udp, 0.0.0.0:55000->55000/tcp, [::]:55000->55000/tcp, 1516/tcp
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose ps
-NAME                             IMAGE                          COMMAND                  SERVICE           CREATED         STATUS                           PORTS
-wazuh_server-wazuh.dashboard-1   wazuh/wazuh-dashboard:4.13.1   "/entrypoint.sh"         wazuh.dashboard   3 minutes ago   Restarting (64) 15 seconds ago   
-wazuh_server-wazuh.indexer-1     wazuh/wazuh-indexer:4.13.1     "/entrypoint.sh open…"   wazuh.indexer     3 minutes ago   Restarting (1) 1 second ago      
-wazuh_server-wazuh.manager-1     wazuh/wazuh-manager:4.13.1     "/init"                  wazuh.manager     3 minutes ago   Up 2 seconds                     0.0.0.0:1514-1515->1514-1515/tcp, [::]:1514-1515->1514-1515/tcp, 0.0.0.0:514->514/udp, [::]:514->514/udp, 0.0.0.0:55000->55000/tcp, [::]:55000->55000/tcp, 1516/tcp
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose ps
-NAME                             IMAGE                          COMMAND                  SERVICE           CREATED         STATUS                           PORTS
-wazuh_server-wazuh.dashboard-1   wazuh/wazuh-dashboard:4.13.1   "/entrypoint.sh"         wazuh.dashboard   3 minutes ago   Restarting (64) 16 seconds ago   
-wazuh_server-wazuh.indexer-1     wazuh/wazuh-indexer:4.13.1     "/entrypoint.sh open…"   wazuh.indexer     3 minutes ago   Restarting (1) 2 seconds ago     
-wazuh_server-wazuh.manager-1     wazuh/wazuh-manager:4.13.1     "/init"                  wazuh.manager     3 minutes ago   Up 3 seconds                     0.0.0.0:1514-1515->1514-1515/tcp, [::]:1514-1515->1514-1515/tcp, 0.0.0.0:514->514/udp, [::]:514->514/udp, 0.0.0.0:55000->55000/tcp, [::]:55000->55000/tcp, 1516/tcp
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose ps
-NAME                             IMAGE                          COMMAND                  SERVICE           CREATED         STATUS                           PORTS
-wazuh_server-wazuh.dashboard-1   wazuh/wazuh-dashboard:4.13.1   "/entrypoint.sh"         wazuh.dashboard   3 minutes ago   Restarting (64) 16 seconds ago   
-wazuh_server-wazuh.indexer-1     wazuh/wazuh-indexer:4.13.1     "/entrypoint.sh open…"   wazuh.indexer     3 minutes ago   Restarting (1) 2 seconds ago     
-wazuh_server-wazuh.manager-1     wazuh/wazuh-manager:4.13.1     "/init"                  wazuh.manager     3 minutes ago   Up 3 seconds                     0.0.0.0:1514-1515->1514-1515/tcp, [::]:1514-1515->1514-1515/tcp, 0.0.0.0:514->514/udp, [::]:514->514/udp, 0.0.0.0:55000->55000/tcp, [::]:55000->55000/tcp, 1516/tcp
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ docker compose ps
-NAME                             IMAGE                          COMMAND                  SERVICE           CREATED         STATUS                           PORTS
-wazuh_server-wazuh.dashboard-1   wazuh/wazuh-dashboard:4.13.1   "/entrypoint.sh"         wazuh.dashboard   3 minutes ago   Restarting (64) 17 seconds ago   
-wazuh_server-wazuh.indexer-1     wazuh/wazuh-indexer:4.13.1     "/entrypoint.sh open…"   wazuh.indexer     3 minutes ago   Restarting (1) 3 seconds ago     
-wazuh_server-wazuh.manager-1     wazuh/wazuh-manager:4.13.1     "/init"                  wazuh.manager     3 minutes ago   Up 4 seconds                     0.0.0.0:1514-1515->1514-1515/tcp, [::]:1514-1515->1514-1515/tcp, 0.0.0.0:514->514/udp, [::]:514->514/udp, 0.0.0.0:55000->55000/tcp, [::]:55000->55000/tcp, 1516/tcp
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel/Wazuh_Server $ cd ..
-[Wazuh_Server]:~/Linux-Endpoint-Sentinel $ cd ..
-[Wazuh_Server]:~ $ ls
-Desktop    Downloads                Music     Public  Templates
-Documents  Linux-Endpoint-Sentinel  Pictures  snap    Videos
-[Wazuh_Server]:~ $ git clone https://github.com/wazuh/wazuh-docker.git -b v4.13.1
-Cloning into 'wazuh-docker'...
-remote: Enumerating objects: 14231, done.
-remote: Counting objects: 100% (414/414), done.
-remote: Compressing objects: 100% (189/189), done.
-remote: Total 14231 (delta 347), reused 226 (delta 225), pack-reused 13817 (from 4)
-Receiving objects: 100% (14231/14231), 5.77 MiB | 23.44 MiB/s, done.
-Resolving deltas: 100% (7503/7503), done.
-Note: switching to '7a3dce50146791ab4302f26774f4cf913f8b0a20'.
-
-You are in 'detached HEAD' state. You can look around, make experimental
-changes and commit them, and you can discard any commits you make in this
-state without impacting any branches by switching back to a branch.
-
-If you want to create a new branch to retain commits you create, you may
-do so (now or later) by using -c with the switch command. Example:
-
-  git switch -c <new-branch-name>
-
-Or undo this operation with:
-
-  git switch -
-
-Turn off this advice by setting config variable advice.detachedHead to false
-
-[Wazuh_Server]:~ $ ls
-Desktop    Downloads                Music     Public  Templates  wazuh-docker
-Documents  Linux-Endpoint-Sentinel  Pictures  snap    Videos
-[Wazuh_Server]:~ $ cd wazuh-docker/
-[Wazuh_Server]:~/wazuh-docker $ ls
-build-docker-images  indexer-certs-creator  README.md    tools
-CHANGELOG.md         LICENSE                SECURITY.md  VERSION.json
-docs                 multi-node             single-node  wazuh-agent
-[Wazuh_Server]:~/wazuh-docker $ cd single-node/
-[Wazuh_Server]:~/wazuh-docker/single-node $ ls
-config  docker-compose.yml  generate-indexer-certs.yml  README.md
-[Wazuh_Server]:~/wazuh-docker/single-node $ vim docker-compose.yml 
-
 # Wazuh App Copyright (C) 2017, Wazuh Inc. (License GPLv2)
 services:
   wazuh.manager:
@@ -434,4 +44,70 @@ services:
       - ./config/wazuh_cluster/wazuh_manager.conf:/wazuh-config-mount/etc/ossec.conf
 
   wazuh.indexer:
-"docker-compose.yml" 113L, 4265B                                           14,10         Top
+    image: wazuh/wazuh-indexer:4.13.1
+    hostname: wazuh.indexer
+    restart: always
+    ports:
+      - "9200:9200"
+    environment:
+      - "OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      - wazuh-indexer-data:/var/lib/wazuh-indexer
+      - ./config/wazuh_indexer_ssl_certs/root-ca.pem:/usr/share/wazuh-indexer/certs/root-ca.pem
+      - ./config/wazuh_indexer_ssl_certs/wazuh.indexer-key.pem:/usr/share/wazuh-indexer/certs/wazuh.indexer.key
+      - ./config/wazuh_indexer_ssl_certs/wazuh.indexer.pem:/usr/share/wazuh-indexer/certs/wazuh.indexer.pem
+      - ./config/wazuh_indexer_ssl_certs/admin.pem:/usr/share/wazuh-indexer/certs/admin.pem
+      - ./config/wazuh_indexer_ssl_certs/admin-key.pem:/usr/share/wazuh-indexer/certs/admin-key.pem
+      - ./config/wazuh_indexer/wazuh.indexer.yml:/usr/share/wazuh-indexer/opensearch.yml
+      - ./config/wazuh_indexer/internal_users.yml:/usr/share/wazuh-indexer/opensearch-security/internal_users.yml
+
+  wazuh.dashboard:
+    image: wazuh/wazuh-dashboard:4.13.1
+    hostname: wazuh.dashboard
+    restart: always
+    ports:
+      - 443:5601
+    environment:
+      - INDEXER_USERNAME=admin
+      - INDEXER_PASSWORD=SecretPassword
+      - WAZUH_API_URL=https://wazuh.manager
+      - DASHBOARD_USERNAME=kibanaserver
+      - DASHBOARD_PASSWORD=kibanaserver
+      - API_USERNAME=wazuh-wui
+      - API_PASSWORD=MyS3cr37P450r.*-
+    volumes:
+      - ./config/wazuh_indexer_ssl_certs/wazuh.dashboard.pem:/usr/share/wazuh-dashboard/certs/wazuh-dashboard.pem
+      - ./config/wazuh_indexer_ssl_certs/wazuh.dashboard-key.pem:/usr/share/wazuh-dashboard/certs/wazuh-dashboard-key.pem
+      - ./config/wazuh_indexer_ssl_certs/root-ca.pem:/usr/share/wazuh-dashboard/certs/root-ca.pem
+      - ./config/wazuh_dashboard/opensearch_dashboards.yml:/usr/share/wazuh-dashboard/config/opensearch_dashboards.yml
+      - ./config/wazuh_dashboard/wazuh.yml:/usr/share/wazuh-dashboard/data/wazuh/config/wazuh.yml
+      - wazuh-dashboard-config:/usr/share/wazuh-dashboard/data/wazuh/config
+      - wazuh-dashboard-custom:/usr/share/wazuh-dashboard/plugins/wazuh/public/assets/custom
+    depends_on:
+      - wazuh.indexer
+    links:
+      - wazuh.indexer:wazuh.indexer
+      - wazuh.manager:wazuh.manager
+
+volumes:
+  wazuh_api_configuration:
+  wazuh_etc:
+  wazuh_logs:
+  wazuh_queue:
+  wazuh_var_multigroups:
+  wazuh_integrations:
+  wazuh_active_response:
+  wazuh_agentless:
+  wazuh_wodles:
+  filebeat_etc:
+  filebeat_var:
+  wazuh-indexer-data:
+  wazuh-dashboard-config:
+  wazuh-dashboard-custom:
