@@ -7,3 +7,11 @@ Wazuh_Server/config/wazuh_indexer_ssl_certs*/
 Wazuh_Server/config/wazuh_indexer_ssl_certs/**
 *.pem
 *.key
+# Vim/에디터 스왑/임시파일
+*.swp
+*.swo
+*.swx
+.*.swp
+.*.swo
+.*.swx
+*~
