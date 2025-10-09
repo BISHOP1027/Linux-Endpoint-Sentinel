@@ -143,3 +143,37 @@
 5. integrations.log(또는 forwarder 로그)에서 전송 성공 확인
 
 ---
+
+## 9. 공격 알림 예시 (Attack Alert Examples)
+
+아래는 실제 탐지된 이벤트들이 Discord Webhook으로 전달된 예시입니다.  
+각 알림은 `local_rules.xml` 내 커스텀 룰(`passwd_changes`, `cron_changes`, `downloader_exec`)에 의해 생성되었습니다.
+
+---
+
+### 🧩 1) Privilege Escalation — `/etc/passwd` 변경 탐지  
+**룰 ID:** 100100  
+**설명:** `/etc/passwd` 파일이 변경될 때 탐지  
+**탐지 키워드:** `passwd_changes`  
+
+![Privilege Escalation Alert](alert_passwd_changes.png)
+
+---
+
+### 🔁 2) Persistence — `crontab` 변경 탐지  
+**룰 ID:** 100200  
+**설명:** 사용자가 Crontab을 수정하거나 새로운 항목을 추가했을 때 탐지  
+**탐지 키워드:** `cron_changes`  
+
+![Persistence Alert](alert_cron_changes.png)
+
+---
+
+### 🌐 3) Command & Control — `curl/wget` 실행 탐지  
+**룰 ID:** 100300  
+**설명:** 외부에서 파일을 다운로드하거나 C2 통신 가능성이 있는 명령어 실행 시 탐지  
+**탐지 키워드:** `downloader_exec`  
+
+![Downloader Alert](alert_downloader_exec.png)
+
+---
