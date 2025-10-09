@@ -5,19 +5,14 @@
 ---
 
 ## 1. 전체 개요 (한 줄 요약)
+
 에이전트에서 발생한 커널/로그 이벤트 → auditd → Wazuh agent 수집 → Wazuh manager(analysisd) 룰 매칭 → alerts.json 생성 → integratord / 포워더가 Discord로 전송
 
-```
-[Agent (auditd)] ──> [Wazuh Agent: logcollector] ──> [Wazuh Manager: analysisd]
-         │                                            │
-         └───────────(audit.log 전송)─────────────────┘
-                                      ↓
-                              alerts.json (alerts directory)
-                                      ↓
-                           [integratord / forwarder script]
-                                      ↓
-                               Discord webhook (alert)
-```
+---
+
+## 🧱 탐지 흐름 다이어그램
+
+![Detection Flow](docs/detection_flow.png)
 
 ---
 
