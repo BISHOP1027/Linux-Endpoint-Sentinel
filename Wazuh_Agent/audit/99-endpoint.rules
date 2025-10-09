@@ -1,0 +1,62 @@
+# 99-endpoint.rules
+
+# Purpose: Minimal auditd rules to detect 3 portfolio scenarios:
+
+# 1) Privilege Escalation (passwd changes, SUID/chmod)
+
+# 2) Webshell / Cron downloader (webroot change, user cron)
+
+# 3) C2 Beacon (supporting detection via suspicious downloader execs)
+
+# Keep rules focused to reduce noise.
+
+####################
+
+# 1) Privilege Escalation
+
+####################
+
+# /etc/passwd 변경 감시 (권한상승 징후)
+
+- w /etc/passwd -p wa -k passwd_changes
+
+# SUID 관련 권한 변경(파일 퍼미션 변경 감지)
+
+# 파일퍼미션 변경(chmod/fchmod...)을 잡아 SUID 부여 시 경보 가능
+
+- a exit,always -F arch=b64 -S chmod,fchmod,fchmodat -k file_perm_change
+
+####################
+
+# 2) Webshell / Cron downloader
+
+####################
+
+# 웹루트(웹셸 업로드/변경 감지)
+
+- w /var/www -p wa -k web_changes
+
+# 사용자 crontab 및 시스템 cron 변경 감시
+
+- w /var/spool/cron -p wa -k cron_changes
+-w /etc/cron.d -p wa -k cron_changes
+
+# 특정 다운로드 도구(wget, curl) 실행 추적 — C2 / 다운로더 흔적 포착용
+
+# (경로는 환경에 따라 다를 수 있으니 /usr/bin 경로가 맞는지 확인)
+
+- a exit,always -F arch=b64 -S execve -F exe=/usr/bin/wget -k downloader_exec
+-a exit,always -F arch=b64 -S execve -F exe=/usr/bin/curl -k downloader_exec
+
+####################
+
+# 3) C2 Beacon (보완용)
+
+####################
+
+# DNS 레졸브/네트워크 관련은 auditd로 직접 잡기 어렵다.
+
+# 보완적으로 'nc'나 'bash -i'/reverse shell 실행 같은 비정상적 exec를 추적
+
+- a exit,always -F arch=b64 -S execve -F exe=/bin/nc -k net_tool_exec
+-a exit,always -F arch=b64 -S execve -F exe=/bin/bash -F a0~="*i*" -k interactive_shell_exec
