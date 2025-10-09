@@ -65,15 +65,3 @@
 - 목적은 "탐지 컨텍스트(무엇이 감지됐는지)"를 보여주되, "사용자/호스트 식별" 정보는 공개하지 않는 것입니다.
 
 ---
-
-## 사용 예시 (README에 링크로 포함)
-```markdown
-| Rule ID | Description | Sample File |
-|----------|--------------|--------------|
-| 100100 | Privilege Escalation — /etc/passwd modified | [privilege_escalation_alert.json](privilege_escalation_alert.json) |
-| 100200 | Persistence — cron entry modified | [persistence_alert.json](persistence_alert.json) |
-| 100300 | Downloader Execution — wget/curl executed | [downloader_alert.json](downloader_alert.json) |
-```
-
----
-
