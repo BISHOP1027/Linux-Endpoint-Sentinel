@@ -1,0 +1,67 @@
+{
+  "timestamp": "2025-10-09T11:19:35.325+0000",
+  "rule": {
+    "level": 8,
+    "description": "Downloader executed (wget/curl)",
+    "id": "100300",
+    "firedtimes": 1,
+    "mail": false,
+    "groups": [
+      "endpoint_scenarios",
+      "auditd",
+      "command_and_control",
+      "execution"
+    ]
+  },
+  "agent": {
+    "id": "002",
+    "name": "REDACTED_AGENT",
+    "ip": "REDACTED_IP"
+  },
+  "manager": {
+    "name": "wazuh.manager"
+  },
+  "id": "REDACTED_ALERT_ID",
+  "full_log": "AUDIT: execve -> command=\"curl --version\" exe=\"/usr/bin/curl\" key=\"downloader_exec\" (user and path REDACTED)",
+  "decoder": {
+    "parent": "auditd",
+    "name": "auditd"
+  },
+  "data": {
+    "audit": {
+      "type": "SYSCALL",
+      "id": "7609",
+      "arch": "c000003e",
+      "syscall": "59",
+      "success": "yes",
+      "exit": "0",
+      "ppid": "REDACTED",
+      "pid": "REDACTED",
+      "auid": "REDACTED",
+      "uid": "REDACTED",
+      "gid": "REDACTED",
+      "euid": "REDACTED",
+      "suid": "REDACTED",
+      "fsuid": "REDACTED",
+      "egid": "REDACTED",
+      "sgid": "REDACTED",
+      "fsgid": "REDACTED",
+      "tty": "REDACTED",
+      "session": "REDACTED",
+      "command": "curl",
+      "exe": "/usr/bin/curl",
+      "key": "downloader_exec",
+      "execve": {
+        "a0": "curl",
+        "a1": "--version"
+      },
+      "cwd": "REDACTED_HOME",
+      "file": {
+        "name": "/usr/bin/curl",
+        "inode": "REDACTED",
+        "mode": "REDACTED"
+      }
+    }
+  },
+  "location": "/var/log/audit/audit.log"
+}
