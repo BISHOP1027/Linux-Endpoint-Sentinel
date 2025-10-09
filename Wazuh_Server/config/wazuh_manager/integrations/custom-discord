@@ -1,0 +1,44 @@
+#!/bin/sh
+set -eu
+
+ALERT_FILE="${1:-}"
+ARG2="${2:-}"
+ARG3="${3:-}"
+
+# --- (A) Alert JSON 확보: 파일 있으면 파일, 없으면 STDIN ---
+if [ -n "$ALERT_FILE" ] && [ -f "$ALERT_FILE" ]; then
+  ALERT_JSON=$(cat "$ALERT_FILE")
+else
+  ALERT_JSON=$(cat)
+fi
+
+# --- (B) Webhook URL 감지: $2 또는 $3 중 http로 시작하는 값 사용 ---
+if printf '%s' "$ARG2" | grep -q '^https\?://'; then
+  WEBHOOK_URL="$ARG2"
+elif printf '%s' "$ARG3" | grep -q '^https\?://'; then
+  WEBHOOK_URL="$ARG3"
+else
+  echo "$(date) ERR=no_webhook args='$ARG2' '$ARG3'" >> /var/ossec/logs/custom-discord-debug.log
+  exit 1
+fi
+
+# --- (C) 얕은 추출 ---
+RID=$(printf '%s' "$ALERT_JSON" | grep -o '"id":"[0-9]\+"' | head -1 | tr -dc '0-9' || true)
+[ -z "${RID:-}" ] && RID="no-id"
+DESC=$(printf '%s' "$ALERT_JSON" | grep -o '"description":"[^"]*"' | head -1 | cut -d: -f2- | sed 's/^"//; s/"$//' || true)
+[ -z "${DESC:-}" ] && DESC="no-desc"
+AGENT=$(printf '%s' "$ALERT_JSON" | grep -o '"name":"[^"]*"' | head -1 | cut -d: -f2- | sed 's/^"//; s/"$//' || true)
+[ -z "${AGENT:-}" ] && AGENT="unknown"
+
+sanitize() { tr '\n' ' ' | sed 's/[[:cntrl:]]//g; s/\\/\\\\/g'; }
+MSG=$(printf 'Wazuh Alert | rule_id=%s | agent=%s | desc=%s' "$RID" "$AGENT" "$DESC" | sanitize)
+
+# --- (D) 디버그 로그 (인자/모드/길이/웹훅 앞부분) ---
+echo "$(date) MODE=$( [ -n "$ALERT_FILE" ] && echo FILE || echo STDIN ) RID=$RID AGENT=$AGENT WEBHOOK=${WEBHOOK_URL%/*}" >> /var/ossec/logs/custom-discord-debug.log
+
+# --- (E) 전송 + 실패 로그 ---
+if ! curl -sSf -F "content=${MSG}" "$WEBHOOK_URL" >/dev/null 2>>/var/ossec/logs/custom-discord-debug.log; then
+  echo "$(date) ERR=curl_failed code=$? RID=$RID" >> /var/ossec/logs/custom-discord-debug.log
+  exit 1
+fi
+

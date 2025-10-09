@@ -1,0 +1,29 @@
+<group name="endpoint_scenarios, auditd,">
+  <rule id="100100" level="12">
+    <if_group>audit</if_group>
+    <match>passwd_changes</match>
+    <description>Priv-Esc: /etc/passwd modified (key=passwd_changes)</description>
+    <options>no_full_log</options>
+    <group>privilege_escalation,</group>
+  </rule>
+</group>
+
+<group name="endpoint_scenarios, auditd,">
+  <rule id="100200" level="10">
+    <if_group>audit</if_group>
+    <match>cron_changes</match>   <!-- audit.key=cron_changes -->
+    <description>Persistence: cron entry modified</description>
+    <group>persistence,</group>
+  </rule>
+</group>
+
+<group name="endpoint_scenarios, auditd,">
+  <rule id="100300" level="8">
+    <if_group>audit</if_group>
+    <match>downloader_exec</match>  <!-- audit.key=downloader_exec -->
+    <same_key>audit.key</same_key>
+    <description>Downloader executed (wget/curl)</description>
+    <group>command_and_control, execution,</group>
+  </rule>
+</group>
+

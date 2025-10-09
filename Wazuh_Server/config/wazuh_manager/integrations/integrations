@@ -1,0 +1,4 @@
+#!/bin/sh
+# Wazuh integratord generic launcher (minimal)
+# Forward all args to your custom discord script
+exec /var/ossec/integrations/custom-discord "$@"
