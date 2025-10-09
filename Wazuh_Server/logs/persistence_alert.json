@@ -1,0 +1,45 @@
+{
+  "timestamp": "2025-10-09T11:23:39.384+0000",
+  "rule": {
+    "level": 10,
+    "id": "100200",
+    "description": "Persistence: cron entry modified",
+    "groups": [
+      "endpoint_scenarios",
+      "auditd",
+      "persistence"
+    ]
+  },
+  "agent": {
+    "id": "002",
+    "name": "REDACTED_AGENT",
+    "ip": "REDACTED_IP"
+  },
+  "manager": {
+    "name": "wazuh.manager"
+  },
+  "id": "REDACTED_ALERT_ID",
+  "full_log": "AUDIT: crontab modification detected (user and file path redacted)",
+  "decoder": {
+    "parent": "auditd",
+    "name": "auditd"
+  },
+  "data": {
+    "audit": {
+      "type": "SYSCALL",
+      "syscall": "rename",
+      "success": "yes",
+      "ppid": "REDACTED",
+      "pid": "REDACTED",
+      "command": "crontab",
+      "exe": "/usr/bin/crontab",
+      "key": "cron_changes",
+      "cwd": "REDACTED_PATH",
+      "file": {
+        "name": "crontabs/REDACTED_USER",
+        "action": "CREATE"
+      }
+    }
+  },
+  "location": "/var/log/audit/audit.log"
+}
