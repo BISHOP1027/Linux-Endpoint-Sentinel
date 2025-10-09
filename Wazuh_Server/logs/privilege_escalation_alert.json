@@ -1,0 +1,49 @@
+{
+  "timestamp": "2025-10-09T11:26:01.416+0000",
+  "rule": {
+    "level": 12,
+    "id": "100100",
+    "description": "Priv-Esc: /etc/passwd modified (key=passwd_changes)",
+    "groups": [
+      "endpoint_scenarios",
+      "auditd",
+      "privilege_escalation"
+    ]
+  },
+  "agent": {
+    "id": "002",
+    "name": "REDACTED_AGENT",
+    "ip": "REDACTED_IP"
+  },
+  "manager": {
+    "name": "wazuh.manager"
+  },
+  "id": "REDACTED_ALERT_ID",
+  "decoder": {
+    "parent": "auditd",
+    "name": "auditd"
+  },
+  "data": {
+    "audit": {
+      "type": "SYSCALL",
+      "syscall": "openat",
+      "success": "no",
+      "exit": "-13",
+      "ppid": "REDACTED",
+      "pid": "REDACTED",
+      "command": "bash",
+      "exe": "/usr/bin/bash",
+      "key": "passwd_changes",
+      "cwd": "REDACTED_HOME",
+      "directory": {
+        "name": "/etc/",
+        "mode": "REDACTED"
+      },
+      "file": {
+        "name": "/etc/passwd",
+        "mode": "REDACTED"
+      }
+    }
+  },
+  "location": "/var/log/audit/audit.log"
+}
