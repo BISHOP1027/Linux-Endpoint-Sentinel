@@ -12,7 +12,7 @@
 
 ## 🧱 탐지 흐름 다이어그램
 
-![Detection Flow](docs/detection_flow.png)
+![Detection Flow](detection_flow.png)
 
 ---
 
